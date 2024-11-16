@@ -75,6 +75,43 @@ namespace EmployeeManagementAPI.Controllers
             await _service.DeleteEmployeeAsync(id);
             return NoContent();
         }
+
+
+        [HttpGet("{id}/department")]
+        public async Task<IActionResult> GetEmployeeWithDepartment(int id)
+        {
+            try
+            {
+                var result = await _service.GetEmployeeWithDepartmentAsync(id);
+                if (result == null)
+                    return NotFound($"Employee with ID {id} not found.");
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpGet("{id}/salary")]
+        public async Task<IActionResult> GetEmployeeWithSalary(int id)
+        {
+            try
+            {
+                var result = await _service.GetEmployeeWithSalaryHistoryAsync(id);
+                if (result == null)
+                    return NotFound($"Employee with ID {id} not found.");
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
     }
 
 }

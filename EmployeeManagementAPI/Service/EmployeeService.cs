@@ -115,5 +115,29 @@ namespace EmployeeManagementAPI.Service
                 throw new Exception($"An error occurred while deleting employee with ID {id}.", ex);
             }
         }
+
+        public async Task<EmployeeWithDepartmentDTO> GetEmployeeWithDepartmentAsync(int id)
+        {
+            try
+            {
+                return await _repository.GetEmployeeWithDepartmentAsync(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"An error occurred while fetching employee with department details for ID {id}.", ex);
+            }
+        }
+
+        public async Task<EmployeeWithSalaryDTO> GetEmployeeWithSalaryHistoryAsync(int id)
+        {
+            try
+            {
+                return await _repository.GetEmployeeWithSalaryHistoryAsync(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"An error occurred while fetching employee with salary history for ID {id}.", ex);
+            }
+        }
     }
 }

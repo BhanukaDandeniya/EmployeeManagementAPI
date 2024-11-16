@@ -1,4 +1,5 @@
 ﻿using EmployeeManagementAPI.Domain;
+using EmployeeManagementAPI.DTO;
 
 namespace EmployeeManagementAPI.Repository
 {
@@ -9,5 +10,7 @@ namespace EmployeeManagementAPI.Repository
         Task AddAsync(Employee employee);
         Task UpdateAsync(Employee employee);
         Task DeleteAsync(int id);
+        Task<EmployeeWithDepartmentDTO> GetEmployeeWithDepartmentAsync(int id);
+        Task<EmployeeWithSalaryDTO> GetEmployeeWithSalaryHistoryAsync(int id);
     }
 }

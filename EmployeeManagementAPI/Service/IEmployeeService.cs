@@ -9,5 +9,8 @@ namespace EmployeeManagementAPI.Service
         Task AddEmployeeAsync(EmployeeDTO employeeDTO);
         Task UpdateEmployeeAsync(EmployeeDTO employeeDTO);
         Task DeleteEmployeeAsync(int id);
+
+        Task<EmployeeWithDepartmentDTO> GetEmployeeWithDepartmentAsync(int id);
+        Task<EmployeeWithSalaryDTO> GetEmployeeWithSalaryHistoryAsync(int id);
     }
 }
