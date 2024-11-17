@@ -14,12 +14,12 @@ builder.Services.AddSwaggerGen();
 // Dependency Injection for Repositories
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-//builder.Services.AddScoped<ISalaryRepository, SalaryRepository>();
+builder.Services.AddScoped<ISalaryRepository, SalaryRepository>();
 
 // Dependency Injection for Services
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
-//builder.Services.AddScoped<ISalaryService, SalaryService>();
+builder.Services.AddScoped<ISalaryService, SalaryService>();
 
 // Add the connection string for the database
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
